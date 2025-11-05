@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to viewedonline.com
+    name: Deploy to costscompared.com
     runs-on: ubuntu-latest
     
     steps:
@@ -54,9 +54,9 @@ jobs:
           echo "================================"
           echo "🎉 Deployment Successful!"
           echo "================================"
-          echo "Website: https://viewedonline.com"
-          echo "Admin Panel: https://viewedonline.com/link-tracker/link-tracking.php"
-          echo "Test Link: https://viewedonline.com/best/test"
+          echo "Website: https://costscompared.com"
+          echo "Admin Panel: https://costscompared.com/link-tracker/link-tracking.php"
+          echo "Test Link: https://costscompared.com/best/test"
           echo "================================"
           echo "Default Login Credentials:"
           echo "Username: admin"
