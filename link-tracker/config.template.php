@@ -14,8 +14,8 @@
 // ═══════════════════════════════════════════════════════════
 // 
 // config.php is already configured with database credentials for:
-// - Database: u609212978_viewedonline
-// - Site URL: https://viewedonline.com
+// - Database: u609212978_costscompared
+// - Site URL: https://costscompared.com
 // - Security salts: Generated and configured
 //
 // The actual config.php file is excluded from Git (.gitignore)
