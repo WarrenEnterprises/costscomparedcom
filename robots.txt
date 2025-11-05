@@ -16,5 +16,5 @@ Disallow: /private/
 Disallow: /tmp/
 
 # Sitemap (add your sitemap URL here if you have one)
-# Sitemap: https://viewedonline.com/sitemap.xml
+# Sitemap: https://costscompared.com/sitemap.xml
 

@@ -3,7 +3,7 @@
  * Link Tracker Configuration Template
  * 
  * This is a template file. The actual config.php has been configured with
- * viewedonline.com credentials and is NOT committed to version control.
+ * costscompared.com credentials and is NOT committed to version control.
  * 
  * DO NOT edit this template - it's for reference only.
  * Edit config.php directly on the server if changes are needed.
@@ -30,8 +30,8 @@ if (!defined('LT_INIT')) {
 
 // Database Configuration (configured in actual config.php)
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'u609212978_viewedonline');
-define('DB_USER', 'u609212978_viewedonlineun');
+define('DB_NAME', 'u609212978_costscompared');
+define('DB_USER', 'u609212978_costscomparedu');
 define('DB_PASS', '*** CONFIGURED ON SERVER ***');
 define('DB_CHARSET', 'utf8mb4');
 
@@ -55,7 +55,7 @@ define('MAX_LOGIN_ATTEMPTS_EXTENDED_BLOCK', 10);
 define('LOGIN_EXTENDED_BLOCK_DURATION', 3600);
 
 // Site Configuration (configured in actual config.php)
-define('SITE_URL', 'https://viewedonline.com');
+define('SITE_URL', 'https://costscompared.com');
 define('TRACKER_PATH', '/link-tracker');
 
 // GeoIP Configuration
