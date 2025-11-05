@@ -1,0 +1,43 @@
+# ═══════════════════════════════════════════════════════════
+# .htaccess for viewedonline.com
+# Link Tracker URL Routing Configuration
+# ═══════════════════════════════════════════════════════════
+
+# Enable URL Rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Route /best/* URLs to link tracker
+    # Example: viewedonline.com/best/my-link → /link-tracker/tracker.php?slug=my-link
+    RewriteRule ^best/([a-zA-Z0-9-]+)$ /link-tracker/tracker.php?slug=$1 [L,QSA]
+</IfModule>
+
+# ═══════════════════════════════════════════════════════════
+# Security Headers
+# ═══════════════════════════════════════════════════════════
+
+# Protect sensitive files
+<FilesMatch "(config\.php|\.sql|\.htaccess|\.git)">
+    <IfVersion < 2.4>
+        Order allow,deny
+        Deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# ═══════════════════════════════════════════════════════════
+# PHP Settings (if needed)
+# ═══════════════════════════════════════════════════════════
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Set timezone (optional)
+# php_value date.timezone "UTC"
+

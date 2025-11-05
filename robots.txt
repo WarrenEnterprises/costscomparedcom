@@ -1,0 +1,20 @@
+# robots.txt for costscompared.com
+# Link Tracker SEO Configuration
+
+User-agent: *
+
+# Hide admin panel and tracking software from search engines
+Disallow: /link-tracking.php
+Disallow: /link-tracker/
+
+# Allow tracked redirect links to be indexed
+Allow: /best/
+
+# Standard exclusions
+Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Sitemap (add your sitemap URL here if you have one)
+# Sitemap: https://viewedonline.com/sitemap.xml
+

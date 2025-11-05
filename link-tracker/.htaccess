@@ -1,0 +1,53 @@
+# ═══════════════════════════════════════════════════════════════
+# Link Tracker - Directory Protection
+# ═══════════════════════════════════════════════════════════════
+
+# Prevent directory browsing
+Options -Indexes
+
+# ═══════════════════════════════════════════════════════════════
+# Protect Sensitive Files
+# ═══════════════════════════════════════════════════════════════
+
+# Deny access to configuration and core files
+<FilesMatch "(config\.php|db\.php|functions\.php|auth\.php|schema\.sql)">
+    Require all denied
+</FilesMatch>
+
+# Deny access to log files
+<FilesMatch "\.(log|txt)$">
+    Require all denied
+</FilesMatch>
+
+# ═══════════════════════════════════════════════════════════════
+# Protect Directories
+# ═══════════════════════════════════════════════════════════════
+
+# Deny access to logs directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^logs/ - [F,L]
+    RewriteRule ^cache/ - [F,L]
+    RewriteRule ^geoip/ - [F,L]
+</IfModule>
+
+# ═══════════════════════════════════════════════════════════════
+# Security Headers
+# ═══════════════════════════════════════════════════════════════
+
+<IfModule mod_headers.c>
+    # Prevent caching of sensitive pages
+    <FilesMatch "\.(php)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# ═══════════════════════════════════════════════════════════════
+# Error Pages (Optional)
+# ═══════════════════════════════════════════════════════════════
+
+# Uncomment to use custom error pages
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+

@@ -1,0 +1,79 @@
+# Link Tracker - Git Ignore File
+
+# ═══════════════════════════════════════════════════════════
+# Sensitive Files - NEVER commit these!
+# ═══════════════════════════════════════════════════════════
+
+# Database credentials (already configured, don't overwrite)
+link-tracker/config.php
+
+# Logs and cache
+link-tracker/logs/
+link-tracker/cache/
+link-tracker/geoip/
+*.log
+
+# ═══════════════════════════════════════════════════════════
+# Development & IDE Files
+# ═══════════════════════════════════════════════════════════
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ═══════════════════════════════════════════════════════════
+# Node modules (if using any build tools)
+# ═══════════════════════════════════════════════════════════
+
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# ═══════════════════════════════════════════════════════════
+# Backup & Temp Files
+# ═══════════════════════════════════════════════════════════
+
+*.bak
+*.tmp
+*.temp
+*.old
+*~
+.~*
+
+# ═══════════════════════════════════════════════════════════
+# Source Files (don't deploy the honestcasinosuk source)
+# ═══════════════════════════════════════════════════════════
+
+honestcasinosuk/
+
+# ═══════════════════════════════════════════════════════════
+# Environment Files
+# ═══════════════════════════════════════════════════════════
+
+.env
+.env.local
+.env.*.local
+
+# ═══════════════════════════════════════════════════════════
+# Compressed Archives
+# ═══════════════════════════════════════════════════════════
+
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ═══════════════════════════════════════════════════════════
+# Database Backups (store these locally, not in repo)
+# ═══════════════════════════════════════════════════════════
+
+*.sql.gz
+*.sql.zip
+backups/
+

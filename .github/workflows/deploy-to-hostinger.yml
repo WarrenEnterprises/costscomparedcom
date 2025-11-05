@@ -1,0 +1,74 @@
+name: Deploy to Hostinger via FTP
+
+# Trigger deployment on push to main branch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allow manual deployment from GitHub Actions tab
+
+jobs:
+  deploy:
+    name: Deploy to viewedonline.com
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🔄 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for better sync
+      
+      - name: 📦 Prepare files for deployment
+        run: |
+          echo "Preparing files for deployment..."
+          echo "Total files to deploy:"
+          find . -type f ! -path './.git/*' ! -path './.github/*' ! -name '.gitignore' | wc -l
+          
+      - name: 🚀 Deploy to Hostinger FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          protocol: ftp
+          port: 21
+          timeout: 300000  # 5 minutes timeout
+          log-level: verbose
+          dangerous-clean-slate: false  # NEVER delete existing files first
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/.env
+            **/.vscode/**
+            **/honestcasinosuk/**
+            **/.github/**
+            **/README.md
+            **/DEPLOYMENT_CHECKLIST.md
+          
+      - name: ✅ Deployment Complete
+        run: |
+          echo "================================"
+          echo "🎉 Deployment Successful!"
+          echo "================================"
+          echo "Website: https://viewedonline.com"
+          echo "Admin Panel: https://viewedonline.com/link-tracker/link-tracking.php"
+          echo "Test Link: https://viewedonline.com/best/test"
+          echo "================================"
+          echo "Default Login Credentials:"
+          echo "Username: admin"
+          echo "Password: changeme123"
+          echo "⚠️  CHANGE PASSWORD IMMEDIATELY AFTER FIRST LOGIN!"
+          echo "================================"
+          
+      - name: 📊 Deployment Summary
+        if: always()
+        run: |
+          echo "Deployment Status: ${{ job.status }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Triggered by: ${{ github.actor }}"
+
