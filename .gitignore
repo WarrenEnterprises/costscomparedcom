@@ -5,7 +5,7 @@
 # ═══════════════════════════════════════════════════════════
 
 # Database credentials (already configured, don't overwrite)
-# link-tracker/config.php  ← Commented out temporarily to deploy config.php
+link-tracker/config.php
 
 # Logs and cache
 link-tracker/logs/
